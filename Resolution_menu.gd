@@ -1,7 +1,7 @@
 extends Control
 
 
-func _on_option_button_item_selected(index):
+func _on_resolution_item_selected(index):
 	match index:
 		0:
 			DisplayServer.window_set_size(Vector2i(1920,1080))
