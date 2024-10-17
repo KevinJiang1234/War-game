@@ -1,7 +1,27 @@
-[gd_scene format=3 uid="uid://ca3iio2tyw8ol"]
+[gd_scene load_steps=6 format=3 uid="uid://ca3iio2tyw8ol"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_6iyb5"]
+[ext_resource type="Texture2D" uid="uid://b362jfu1qonqc" path="res://Space Background.png" id="3_qnox1"]
+[ext_resource type="PackedScene" uid="uid://c5aidcpo3k52k" path="res://characters/player.tscn" id="3_scks8"]
+[ext_resource type="PackedScene" uid="uid://b8dwfv1lsrh8s" path="res://characters/Enemy/enemy_spawner.tscn" id="4_e6lqc"]
+[ext_resource type="PackedScene" uid="uid://bs1cij5y1vpob" path="res://characters/Enemy/Enemy.tscn" id="5_4fyk5"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_6iyb5")
+
+[node name="Player" parent="." instance=ExtResource("3_scks8")]
+position = Vector2(648, 661)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(-1, -1)
+scale = Vector2(6.43, 3.56)
+texture = ExtResource("3_qnox1")
+centered = false
+region_rect = Rect2(0, 0, 320, 320)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="EnemySpawner" parent="." instance=ExtResource("4_e6lqc")]
+position = Vector2(-165, -94)
+
+[node name="Enemy2" parent="EnemySpawner" instance=ExtResource("5_4fyk5")]
+position = Vector2(-3.00006, 4)

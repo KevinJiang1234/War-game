@@ -1,0 +1,111 @@
+[gd_scene load_steps=17 format=3 uid="uid://c5aidcpo3k52k"]
+
+[ext_resource type="Texture2D" uid="uid://cxdpdnp6bpqun" path="res://Spaceship_Asset.png" id="1_6ij1e"]
+[ext_resource type="Script" path="res://characters/player.gd" id="1_ma0kb"]
+[ext_resource type="PackedScene" uid="uid://b4o8u38h7nkgr" path="res://characters/laser.tscn" id="3_s5s10"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6h53w"]
+atlas = ExtResource("1_6ij1e")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ickb3"]
+atlas = ExtResource("1_6ij1e")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olxf2"]
+atlas = ExtResource("1_6ij1e")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oakg"]
+atlas = ExtResource("1_6ij1e")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohrui"]
+atlas = ExtResource("1_6ij1e")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87fu4"]
+atlas = ExtResource("1_6ij1e")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71kxs"]
+atlas = ExtResource("1_6ij1e")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ft76"]
+atlas = ExtResource("1_6ij1e")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6srq"]
+atlas = ExtResource("1_6ij1e")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gchic"]
+atlas = ExtResource("1_6ij1e")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rr2bd"]
+atlas = ExtResource("1_6ij1e")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2rd3"]
+atlas = ExtResource("1_6ij1e")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7iw2x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6h53w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ickb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olxf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oakg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohrui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87fu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71kxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ft76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6srq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gchic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rr2bd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2rd3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_ma0kb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4, -2)
+sprite_frames = SubResource("SpriteFrames_7iw2x")
+autoplay = "default"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-31, -9, -28, 8, -10, 3, -17, 8, -10, 9, -7, 18, -1, 18, 1, 11, 10, 8, 2, 3, 19, 9, 24, -8, 5, -18, 0, -26, -9, -26, -12, -19)
+
+[node name="laser" parent="." instance=ExtResource("3_s5s10")]
+position = Vector2(-4, -58)

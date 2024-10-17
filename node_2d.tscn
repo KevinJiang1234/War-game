@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgge5d3x27upm"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h3d42"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(292, 716)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-2, 3)
+shape = SubResource("WorldBoundaryShape2D_h3d42")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+auto_translate = false
